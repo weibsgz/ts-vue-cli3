@@ -7,10 +7,16 @@
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import HelloWorld from '@/components/HelloWorld.vue';
+import {loginReq} from '@/api/user'
 
 export default {
   name: 'home',
+  mounted() {
+      loginReq({username:'weibin',password:123}).then(res=>{
+         console.log(res.data.code)
+     })
+  },
   components: {
     HelloWorld
   }
